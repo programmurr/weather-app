@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+body {
+  font: 1em sans-serif;
+  line-height: 1;
+  height: 100%;
+}
+
+input {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid #333;
+  margin: 0;
+  font-family: inherit;
+  font-size: 90%;
+  box-sizing: border-box;
+  padding-left: 3px;
+}
