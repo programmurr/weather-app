@@ -2,6 +2,10 @@ import './styles/style.css';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
+const input = document.getElementById('location');
+const form = document.getElementsByTagName('form')[0];
+const displayDiv = document.getElementById('display');
+
 async function cleanWeatherData(weatherData) {
   return {
     category: weatherData.weather[0].main,
@@ -24,16 +28,22 @@ async function cleanWeatherData(weatherData) {
   };
 }
 
-async function getWeather() {
+async function getWeather(location) {
   try {
-    const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Belfast&appid=083f648ccd46dcb20ecb3b4fdd992ecd&units=metric', { mode: 'cors' });
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=083f648ccd46dcb20ecb3b4fdd992ecd&units=metric`, { mode: 'cors' });
     const rawWeatherData = await response.json();
     const parsedWeatherData = await cleanWeatherData(rawWeatherData);
     console.log(parsedWeatherData);
   } catch (err) {
-    alert("That place doesn't exist!");
+    alert('Please enter a location');
     console.error(err);
   }
 }
 
-getWeather();
+getWeather('Belfast');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  getWeather(input.value);
+  form.reset();
+});

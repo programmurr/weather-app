@@ -5,16 +5,22 @@
     <title>Weather App</title>
   </head>
   <body>
-    <h1 id="title">INFORM YOURSELF OF THE WEATHER</h1>
-    <form novalidate>
-      <p>
-        <label for="location">
-          <span>Please enter your location:</span>
-          <input type="text" name="location" id="location" />
-          <span class="error" aria-live="polite"></span>
-        </label>
-      </p>
-    </form>
+    <div id="title">
+      <h1 id="title">INFORM YOURSELF OF THE WEATHER</h1>
+    </div>
+    <div id="form">
+      <form>
+        <p>
+          <label for="location">
+            <span>Please enter your location:</span>
+            <input type="text" name="location" id="location" />
+            <span class="error" aria-live="polite"></span>
+          </label>
+        </p>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div id="display"></div>
     <script src="bundle.js"></script>
   </body>
 </html>
