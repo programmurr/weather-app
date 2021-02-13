@@ -10,9 +10,39 @@ const weatherDisplayer = () => {
     return `${dateTime.getHours()}:${dateTime.getMinutes()}`;
   }
 
-  function displayWeather(data, div) {
-    console.log(data);
+  function parseWindSpeed(metricSpeed) {
+    return Math.round(metricSpeed * 2.2369363);
+  }
 
+  function setBackgroundImage(backgroundImage, category) {
+    switch (category) {
+      case 'Atmosphere':
+        backgroundImage.src = '../src/img/Atmosphere.jpg';
+        break;
+      case 'Clear':
+        backgroundImage.src = '../src/img/Clear.jpg';
+        break;
+      case 'Clouds':
+        backgroundImage.src = '../src/img/Clouds.jpg';
+        break;
+      case 'Drizzle':
+        backgroundImage.src = '../src/img/Drizzle.jpg';
+        break;
+      case 'Rain':
+        backgroundImage.src = '../src/img/Rain.jpg';
+        break;
+      case 'Snow':
+        backgroundImage.src = '../src/img/Snow.jpg';
+        break;
+      case 'Thunderstorm':
+        backgroundImage.src = '../src/img/Thunderstorm.jpg';
+        break;
+      default:
+        backgroundImage.src = '../src/img/Default.jpg';
+    }
+  }
+
+  function displayWeather(data, div, backgroundImage) {
     div.innerHTML = '';
 
     const location = document.createElement('h3');
@@ -56,7 +86,7 @@ const weatherDisplayer = () => {
 
     const windSpeed = document.createElement('h3');
     windSpeed.id = 'wind-speed';
-    windSpeed.textContent = `Wind speed: ${data.windSpeed} m/s`;
+    windSpeed.textContent = `Wind speed: ${parseWindSpeed(data.windSpeed)} mph`;
 
     const appendages = [
       location,
@@ -74,6 +104,8 @@ const weatherDisplayer = () => {
     appendages.forEach((appendage) => {
       div.appendChild(appendage);
     });
+
+    setBackgroundImage(backgroundImage, data.category);
   }
 
   return { displayWeather };

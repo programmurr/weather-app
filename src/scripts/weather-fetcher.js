@@ -21,7 +21,6 @@ const weatherFetcher = () => {
       return parsedWeatherData;
     } catch (err) {
       alert('Please enter a location');
-      console.error(err);
     }
   }
 
