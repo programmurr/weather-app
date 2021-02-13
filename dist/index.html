@@ -6,20 +6,22 @@
   </head>
   <body>
     <img src="" alt="Weather Condition" class="bg" />
-    <div id="title"></div>
-    <div id="form">
-      <form>
-        <p>
-          <label for="location">
-            <span>PLEASE ENTER THE LOCATION OF THE WEATHER IN QUESTION:</span>
-            <input type="text" name="location" id="location" />
-            <span class="error" aria-live="polite"></span>
-          </label>
-        </p>
-        <button type="submit">Submit</button>
-      </form>
+    <div id="content">
+      <div id="form">
+        <form>
+          <p>
+            <input
+              type="text"
+              name="location"
+              id="location"
+              placeholder="Location"
+            />
+          </p>
+          <button type="submit">Check</button>
+        </form>
+      </div>
+      <div id="display"></div>
     </div>
-    <div id="display"></div>
     <script src="bundle.js"></script>
   </body>
 </html>

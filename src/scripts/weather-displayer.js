@@ -78,11 +78,11 @@ const weatherDisplayer = () => {
 
     const temperature = document.createElement('h3');
     temperature.id = 'temperature';
-    temperature.textContent = `Temp: ${data.temp} Celsius`;
+    temperature.textContent = `${data.temp} \u00B0C`;
 
     const feelsLike = document.createElement('h3');
     feelsLike.id = 'feels-like';
-    feelsLike.textContent = `Feels like ${data.tempFeelsLike} Celsius`;
+    feelsLike.textContent = `Feels like ${data.tempFeelsLike} \u00B0C`;
 
     const windSpeed = document.createElement('h3');
     windSpeed.id = 'wind-speed';
@@ -91,10 +91,9 @@ const weatherDisplayer = () => {
     const appendages = [
       location,
       time,
-      category,
-      description,
       temperature,
       feelsLike,
+      description,
       humidity,
       sunrise,
       sunset,
