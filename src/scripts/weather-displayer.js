@@ -1,3 +1,12 @@
+import Atmosphere from '../img/Atmosphere.jpg';
+import Clear from '../img/Clear.jpg';
+import Clouds from '../img/Clouds.jpg';
+import Default from '../img/Default.jpg';
+import Drizzle from '../img/Drizzle.jpg';
+import Rain from '../img/Rain.jpg';
+import Snow from '../img/Snow.jpg';
+import Thunderstorm from '../img/Thunderstorm.jpg';
+
 const weatherDisplayer = () => {
   function parseDescription(description) {
     return description.split(' ')
@@ -17,28 +26,28 @@ const weatherDisplayer = () => {
   function setBackgroundImage(backgroundImage, category) {
     switch (category) {
       case 'Atmosphere':
-        backgroundImage.src = '../src/img/Atmosphere.jpg';
+        backgroundImage.src = Atmosphere;
         break;
       case 'Clear':
-        backgroundImage.src = '../src/img/Clear.jpg';
+        backgroundImage.src = Clear;
         break;
       case 'Clouds':
-        backgroundImage.src = '../src/img/Clouds.jpg';
+        backgroundImage.src = Clouds;
         break;
       case 'Drizzle':
-        backgroundImage.src = '../src/img/Drizzle.jpg';
+        backgroundImage.src = Drizzle;
         break;
       case 'Rain':
-        backgroundImage.src = '../src/img/Rain.jpg';
+        backgroundImage.src = Rain;
         break;
       case 'Snow':
-        backgroundImage.src = '../src/img/Snow.jpg';
+        backgroundImage.src = Snow;
         break;
       case 'Thunderstorm':
-        backgroundImage.src = '../src/img/Thunderstorm.jpg';
+        backgroundImage.src = Thunderstorm;
         break;
       default:
-        backgroundImage.src = '../src/img/Default.jpg';
+        backgroundImage.src = Default;
     }
   }
 
