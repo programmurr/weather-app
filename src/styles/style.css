@@ -84,3 +84,13 @@ button {
   border-radius: 75px 75px;
   margin-bottom: 10px;
 }
+
+.toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#toggle {
+  margin-top: 10px;
+}

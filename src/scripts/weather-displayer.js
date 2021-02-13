@@ -51,7 +51,7 @@ const weatherDisplayer = () => {
     }
   }
 
-  function displayWeather(data, div, backgroundImage) {
+  function displayWeather(data, div, backgroundImage, toggle) {
     div.innerHTML = '';
 
     const location = document.createElement('h3');
@@ -87,11 +87,20 @@ const weatherDisplayer = () => {
 
     const temperature = document.createElement('h3');
     temperature.id = 'temperature';
-    temperature.textContent = `${data.temp} \u00B0C`;
+    if (toggle.className === 'true') {
+      temperature.textContent = `${data.temp} \u00B0F`;
+    } else {
+      temperature.textContent = `${data.temp} \u00B0C`;
+    }
 
     const feelsLike = document.createElement('h3');
     feelsLike.id = 'feels-like';
     feelsLike.textContent = `Feels like ${data.tempFeelsLike} \u00B0C`;
+    if (toggle.className === 'true') {
+      feelsLike.textContent = `Feels like ${data.tempFeelsLike} \u00B0F`;
+    } else {
+      feelsLike.textContent = `Feels like ${data.tempFeelsLike} \u00B0C`;
+    }
 
     const windSpeed = document.createElement('h3');
     windSpeed.id = 'wind-speed';
@@ -116,7 +125,21 @@ const weatherDisplayer = () => {
     setBackgroundImage(backgroundImage, data.category);
   }
 
-  return { displayWeather };
+  function convertToC(data) {
+    const celsius = ((data.temp - 32) / 1.8);
+    data.temp = Math.round(celsius);
+    return data;
+  }
+
+  function convertToF(data) {
+    const fahrenheitTemp = ((data.temp * 1.8) + 32);
+    const fahrenheitFeels = ((data.tempFeelsLike * 1.8) + 32);
+    data.temp = fahrenheitTemp.toFixed(2);
+    data.tempFeelsLike = fahrenheitFeels.toFixed(2);
+    return data;
+  }
+
+  return { displayWeather, convertToC, convertToF };
 };
 
 export default weatherDisplayer;
