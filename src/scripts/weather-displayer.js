@@ -125,12 +125,6 @@ const weatherDisplayer = () => {
     setBackgroundImage(backgroundImage, data.category);
   }
 
-  function convertToC(data) {
-    const celsius = ((data.temp - 32) / 1.8);
-    data.temp = Math.round(celsius);
-    return data;
-  }
-
   function convertToF(data) {
     const fahrenheitTemp = ((data.temp * 1.8) + 32);
     const fahrenheitFeels = ((data.tempFeelsLike * 1.8) + 32);
@@ -139,7 +133,7 @@ const weatherDisplayer = () => {
     return data;
   }
 
-  return { displayWeather, convertToC, convertToF };
+  return { displayWeather, convertToF };
 };
 
 export default weatherDisplayer;

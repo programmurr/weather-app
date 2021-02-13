@@ -52,7 +52,6 @@ toggleTemp.addEventListener('click', (event) => {
     toggle.textContent = 'Toggle \u00B0F';
 
     weather.getWeather(location.textContent)
-      .then((json) => displayer.convertToC(json))
       .then((json) => {
         displayer.displayWeather(json, displayDiv, backgroundImage, toggle);
       })
