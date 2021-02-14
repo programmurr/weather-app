@@ -16,7 +16,10 @@ const weatherDisplayer = () => {
 
   function parseTime(unixTime) {
     const dateTime = new Date(unixTime * 1000);
-    return `${dateTime.getHours()}:${dateTime.getMinutes()}`;
+    const hours = dateTime.getHours();
+    const minutes = `0${dateTime.getMinutes()}`;
+    const formattedTime = `${hours}:${minutes.substring(1)}`;
+    return formattedTime;
   }
 
   function parseWindSpeed(metricSpeed) {
