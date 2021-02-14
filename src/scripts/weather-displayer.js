@@ -15,11 +15,10 @@ const weatherDisplayer = () => {
   }
 
   function parseTime(unixTime) {
-    const dateTime = new Date(unixTime * 1000);
-    const hours = dateTime.getHours();
-    const minutes = `0${dateTime.getMinutes()}`;
-    const formattedTime = `${hours}:${minutes.substring(1)}`;
-    return formattedTime;
+    const date = new Date(unixTime * 1000);
+    const hours = date.getHours();
+    const minutes = (`0${date.getMinutes()}`).slice(-2);
+    return `${hours}:${minutes}`;
   }
 
   function parseWindSpeed(metricSpeed) {
@@ -62,7 +61,9 @@ const weatherDisplayer = () => {
     location.textContent = data.name;
 
     const currentDate = new Date();
-    const timeNow = `${currentDate.getHours()}:${currentDate.getMinutes()}`;
+    const hours = currentDate.getHours();
+    const minutes = (`0${currentDate.getMinutes()}`).slice(-2);
+    const timeNow = `${hours}:${minutes}`;
 
     const time = document.createElement('h3');
     time.id = 'time';
